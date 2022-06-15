@@ -28,12 +28,34 @@ namespace Database2022
             }
         }
 
+
+
+        public bool CreateRange(List<Person> items)
+        {
+            try
+            {
+                //EntityFrameworkCore
+                _context.People.AddRange(items);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         public List<Person> Get()
         {
             return _context.People.ToList();
         }
 
 
+        public List<Person> GetByText(string text)
+        {
+            return _context.People.Where(x => x.FirstName.Contains(text)).ToList();
+        }
 
 
 

@@ -6,10 +6,15 @@
     <StackLayout>
         <Entry Placeholder="Enter Name" x:Name="txtName" HorizontalOptions="FillAndExpand"/>
         <Entry Placeholder="Enter LastName" x:Name="txtLastName" HorizontalOptions="FillAndExpand"/>
+        
         <StackLayout Orientation="Horizontal">
             <Button Text="Save" Clicked="Button_Clicked"/>
             <Button Text="Show" Clicked="Button_Clicked_1"/>
+            
         </StackLayout>
+        <Entry Placeholder="Filter" x:Name="txtFilter" HorizontalOptions="FillAndExpand"/>
+        <Button Text="ShowByText" Clicked="Button_Clicked_2"/>
+        
         <ListView x:Name="lvPeople">
             <ListView.ItemTemplate>
                 <DataTemplate>
