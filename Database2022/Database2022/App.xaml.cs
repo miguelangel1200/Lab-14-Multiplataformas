@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database2022.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace Database2022
         {
             InitializeComponent();
             GetContext().Database.EnsureCreated();
-            MainPage = new MainPage();
+            MainPage = new PeopleView();
         }
 
 

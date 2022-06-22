@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database2022.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Database2022
 
         private void Button_Clicked_2(object sender, EventArgs e)
         {
-            PersonService service = new PersonService();
+            PersonService service = new PersonService();            
             lvPeople.ItemsSource = service.GetByText(txtFilter.Text.Trim());
         }
     }
