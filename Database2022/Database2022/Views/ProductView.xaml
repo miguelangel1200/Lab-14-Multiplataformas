@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Database2022.Views.ProductView">
+    <ContentPage.Content>
+        <StackLayout x:Name="viewStackLayout" Padding="10">
+            <Label
+                    Text="Nombre: ">
+            </Label>
+            <Entry
+                    Text="{Binding ProductName}"
+                    Placeholder="Nombre">
+            </Entry>
+
+            <Label
+                    Text="Detalle: ">
+            </Label>
+            <Entry
+                    Text="{Binding ProductDetail}"
+                    Placeholder="Detalle">
+            </Entry>
+
+
+            <Label
+                    Text="Precio: ">
+            </Label>
+            <Entry
+                    Text="{Binding ProductPrice}"
+                    Placeholder="Precio">
+            </Entry>
+
+
+            <Label
+                    Text="In Stock: ">
+            </Label>
+            <Entry    
+                Text ="{Binding ProductInStock}"
+                Placeholder="Cantidad"
+            />
+            <Button Text="Añadir" Command="{Binding InsertCommand}" FontAttributes="Bold" Background="#5469D1"/>
+            <ListView x:Name="lvProduct" ItemsSource="{Binding Products}" BackgroundColor="{Binding Color}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ProductName}"></Label>
+                                <Label Text="{Binding ProductDetail}"></Label>
+                                <Label Text="{Binding ProductPrice}"></Label>
+                                <Label Text="{Binding ProductInStock}"></Label>
+                                <Button Text="Edit" Command="{Binding BindingContext.SelectOneCommand, Source={x:Reference viewStackLayout}}" CommandParameter="{Binding ProductId}" Background="#9CD154"/>
+
+                                <Button Text="X" Command="{Binding BindingContext.DeleteCommand, Source={x:Reference viewStackLayout}}" CommandParameter="{Binding ProductId}" Background="#D15454"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,5 +1,4 @@
-﻿using Database2022.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Database2022.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PeopleView : ContentPage
+    public partial class ProductsPage : ContentPage
     {
-        public PeopleView()
+        public ProductsPage()
         {
             InitializeComponent();
-            this.BindingContext = new ViewModelPeople();
         }
     }
 }

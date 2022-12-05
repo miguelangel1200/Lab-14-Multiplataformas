@@ -1,4 +1,5 @@
-﻿using Database2022.ViewModels;
+﻿using Database2022.Models;
+using Database2022.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,29 +19,29 @@ namespace Database2022
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            PersonService service = new PersonService();
-            List<Person> people = new List<Person>();
+            ProductService service = new ProductService();
+            List<Product> products = new List<Product>();
 
-            for (int i = 0; i < 3; i++)            
-                people.Add(new Person { LastName = txtLastName.Text, FirstName = txtName.Text });
+            for (int i = 0; i < 5; i++)            
+                products.Add(new Product { ProductName = txtProductName.Text, ProductDetail = txtProductDetail.Text, ProductPrice = Convert.ToDouble(txtProductPrice.Text), ProductInStock = Convert.ToInt32(txtProductInStock.Text) });
 
             //service.Create(new Person { LastName = txtLastName.Text, FirstName = txtName.Text });
 
-            service.CreateRange(people);
+            service.CreateRange(products);
             
             
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
-            PersonService service = new PersonService();
-            lvPeople.ItemsSource= service.Get();
+            ProductService service = new ProductService();
+            lvProduct.ItemsSource= service.Get();
         }
 
         private void Button_Clicked_2(object sender, EventArgs e)
         {
-            PersonService service = new PersonService();            
-            lvPeople.ItemsSource = service.GetByText(txtFilter.Text.Trim());
+            ProductService service = new ProductService();            
+            lvProduct.ItemsSource = service.GetByText(txtFilter.Text.Trim());
         }
     }
 }
